@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class SubFolder extends Model
 {
     use HasFactory;
-    protected $table = 'sub_parent_folders';
+    protected $table = 'sub_folders';
     protected $fillable = [
         'id',
-        'parent_folder_id',
+        'folder_id',
+        'type',
         'name',
     ];
-    public function parent_folders()
+    public function folders()
     {
-        return $this->belongsTo(ParentFolder::class, 'parent_folder_id');
+        return $this->belongsTo(Folder::class, 'folder_id');
     }
 }

@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ParentFolder extends Model
-{
+class Folder extends Model
+{    
     use HasFactory;
-    protected $table = 'parent_folders';
+    protected $table = 'folders';
     protected $fillable = [
         'id',
         'name',
     ];
 
-    public function sub_parents()
+    public function sub_folders()
     {
         return $this->hasMany(SubFolder::class);
     }

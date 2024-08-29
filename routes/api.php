@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ParentFolderController;
+use App\Http\Controllers\FolderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-
-Route::controller(ParentFolderController::class)->group(function () {
-    Route::get('parent_folders', 'listParentFolder');
+Route::controller(FolderController::class)->group(function () {
+    Route::get('{folder_id}/sub_folder', 'listSubfolder');
+    Route::get('folder', 'listFolder');
 });
+

@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('sub_folders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parent_folder_id')->index()->nullable();
-            $table->string('name');
+            $table->unsignedBigInteger('folder_id')->index()->nullable();
+            $table->string('name')->index();
+            $table->string('type');
+            $table->string('size')->nullable();
             $table->timestamps();
-            $table->foreign('parent_folder_id')->references('id')->on('parent_folders')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('folder_id')->references('id')->on('parent_folders')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
